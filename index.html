@@ -1,1 +1,22 @@
-<html> <head> </head> <body> tagesklau </body> </html> 
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>tagesklau</h1>
+    <input id="search" />
+    <input type="submit" onclick="go();" />
+    search ...
+    <ul id="results"></ul>
+  </body>
+  <script>
+    function go() {
+      var searchTerm = document.getElementById('search');
+      var results = [ searchTerm, searchTerm, searchTerm ];
+      var str='';
+      for(var i = 0, i<results.length;i++) {
+        str+='<li>'+results[i]+'</li>';
+      }  
+      document.getElementById('results').innerHTML = str;
+    }
+  </script>
+</html> 
