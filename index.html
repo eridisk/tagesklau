@@ -44,6 +44,7 @@
     }
       parseRSS("http://pipes.yahoo.com/pipes/pipe.run?_id=fa89ea1b798157abc93431103e36d63b&_render=rss", function(result) {
         items = result.entries;
+        console.log(result.entries);
         var str='';
         for(var i = 0; i<result.entries.length; i++) {
           str+='<li>'+result.entries[i].title +'</li>';
