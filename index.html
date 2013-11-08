@@ -8,15 +8,27 @@
     search ...
     <ul id="results"></ul>
   </body>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
   <script>
+    function parseRSS(url, callback) {
+      $.ajax({
+        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+        dataType: 'json',
+        success: function(data) {
+          callback(data.responseData.feed);
+        }
+      });
+    }
     function go() {
       var searchTerm = document.getElementById('search').value;
-      var results = [ searchTerm, searchTerm, searchTerm ];
-      var str='';
-      for(var i = 0; i<results.length; i++) {
-        str+='<li>'+results[i]+'</li>';
-      }  
-      document.getElementById('results').innerHTML = str;
+      parseRSS("http://berlinergazette.de/feed/", function(result) {
+        var str='';
+        for(var i = 0; i<results.length; i++) {
+          str+='<li>'+results[i]+'</li>';
+        }  
+        document.getElementById('results').innerHTML = str;
+      });
     }
   </script>
 </html> 
