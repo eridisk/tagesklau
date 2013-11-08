@@ -47,7 +47,7 @@
         console.log(result.entries);
         var str='';
         for(var i = 0; i<result.entries.length; i++) {
-          str+='<li><a src="'+items[i].link+'"> '+items[i].title +'</a></li>';
+          str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
         }  
         document.getElementById('results').innerHTML = str;
       });
@@ -56,7 +56,7 @@
       var str='';
       for(var i = 0; i<items.length; i++) {
         if ((items[i].title.toLowerCase().indexOf(searchTerm) != -1) || (searchTerm.length ==0)) {
-          str+='<li><a src="'+items[i].link+'"> '+items[i].title +'</a></li>';
+          str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
         }         
         
       }  
