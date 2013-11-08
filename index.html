@@ -12,8 +12,14 @@
       <form role="form">
         <fieldset class="well well-lg">
           <div class="form-group">
-            <label for="search">Suche nach</label>
+            <label for="search">Suche in 
+            <checkbox checked="true" label="Inland" id="inland"/>  
+            <checkbox checked="true" label="Ausland" id="ausland"/>  
+            <checkbox checked="true" label="Feuilleton" id="feuilleton"/>  
+            <checkbox checked="true" label="Sport" id="sport"/>  
+            <checkbox checked="true" label="Sonstiges" id="sonstiges"/>  </label>
             <input id="search" class="form-control" id="search" />
+            
           </div>
           <input type="submit" class="btn btn-primary btn-lg pull-right" onclick="go(); return false;" value="Suche starten" />
         </fieldset>
@@ -54,11 +60,28 @@
     function go() {
       var searchTerm = document.getElementById('search').value.toLowerCase();
       var str='';
+      var category;
       for(var i = 0; i<items.length; i++) {
         if ((items[i].title.toLowerCase().indexOf(searchTerm) != -1) || (searchTerm.length ==0)) {
-          str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
+          category="sonstiges";
+          if (items[i].categories.length > 0) {
+            if (items[i].categories[0] == "Inland") {
+              category="inland";
+            }
+            if (items[i].categories[0] == "Ausland") {
+              category="ausland";
+            }
+            if (items[i].categories[0] == "Feuilleton") {
+              category="feuilleton";
+            }
+            if (items[i].categories[0] == "Sport") {
+              category="sport";
+            }
+          }
+          if (document.getElementById(category).checked) {
+            str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
+          }
         }         
-        
       }  
       document.getElementById('results').innerHTML = str;
     }
