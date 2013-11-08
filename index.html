@@ -20,8 +20,6 @@
         }
       });
     }
-    function go() {
-      var searchTerm = document.getElementById('search').value;
       parseRSS("http://berlinergazette.de/feed/", function(result) {
         console.log(result)
         var str='';
@@ -30,6 +28,8 @@
         }  
         document.getElementById('results').innerHTML = str;
       });
+    function go() {
+      var searchTerm = document.getElementById('search').value;
     }
   </script>
 </html> 
