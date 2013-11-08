@@ -11,6 +11,7 @@
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
   <script>
+    var items; 
     function parseRSS(url, callback) {
       $.ajax({
         url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=20&callback=?&q=' + encodeURIComponent(url),
@@ -21,7 +22,7 @@
       });
     }
       parseRSS("http://berlinergazette.de/feed/", function(result) {
-        console.log(result)
+        items = result.entries;
         var str='';
         for(var i = 0; i<result.entries.length; i++) {
           str+='<li>'+result.entries[i].title +'</li>';
@@ -30,6 +31,13 @@
       });
     function go() {
       var searchTerm = document.getElementById('search').value;
+      var str='';
+      for(var i = 0; i<item.length; i++) {
+        if (items[i].title.indexOf(searchTerm) != -1){
+          str+='<li>'+items[i].title +'</li>';
+        }         
+      }  
+      document.getElementById('results').innerHTML = str;
     }
   </script>
 </html> 
