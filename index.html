@@ -33,7 +33,7 @@
       var searchTerm = document.getElementById('search').value.toLowerCase();
       var str='';
       for(var i = 0; i<items.length; i++) {
-        if ((items[i].title.toLowerCase().indexOf(searchTerm) != -1) or (searchTerm.length ==0)) {
+        if (items[i].title.toLowerCase().indexOf(searchTerm) != -1) || (searchTerm.length ==0) {
           str+='<li>'+items[i].title +'</li>';
         }         
         
