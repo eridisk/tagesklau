@@ -1,22 +1,36 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-  article h1 {padding:15px} 
-  article {background-color: pink; margin:40px;}
-  body {font:15px sans-serif; line-height:1.4em;}
   </style>
   </head>
   <body>
-    <article>
-    <h1>tagesklau</h1>
-    <input id="search" />
-    <input type="submit" onclick="go();" />
-    search ...
-    <ul id="results"></ul>
+    <article class="container theme-showcase">
+      <h1>tagesklau <small>demo</small></h1>
+      <form role="form">
+        <fieldset class="well well-lg">
+          <div class="form-group">
+            <label for="search">Suche nach</label>
+            <input id="search" class="form-control" id="search" />
+          </div>
+          <input type="submit" class="btn btn-primary btn-lg pull-right" onclick="go(); return false;" value="Suche starten" />
+        </fieldset>
+      </form>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Results
+        </div>
+        <div class="panel-body">
+          <ul id="results"></ul>
+        </div>
+      </div>
     </article>
   </body>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
   <script>
     var items; 
     function parseRSS(url, callback) {
