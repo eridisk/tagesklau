@@ -52,11 +52,7 @@
       parseRSS("http://pipes.yahoo.com/pipes/pipe.run?_id=fa89ea1b798157abc93431103e36d63b&_render=rss", function(result) {
         items = result.entries;
         console.log(result.entries);
-        var str='';
-        for(var i = 0; i<result.entries.length; i++) {
-          str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
-        }  
-        document.getElementById('results').innerHTML = str;
+        go();
       });
     function go() {
       var searchTerm = document.getElementById('search').value.toLowerCase();
@@ -82,9 +78,9 @@
           if (document.getElementById(category).checked) {
             str+='<li><a href="'
                 +items[i].link+'"> '
-                +items[i].title+'</a> '
+                +items[i].title+'</a> <div style="font-size:10px"> '
                 +items[i].publishedDate+' '
-                +items[i].link.substring(0,20)+'... </li>';
+                +items[i].link.substring(0,20)+'... </div> </li>';
           }
         }         
       }  
