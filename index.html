@@ -32,7 +32,7 @@
     function go() {
       var searchTerm = document.getElementById('search').value;
       var str='';
-      for(var i = 0; i<item.length; i++) {
+      for(var i = 0; i<items.length; i++) {
         if (items[i].title.indexOf(searchTerm) != -1){
           str+='<li>'+items[i].title +'</li>';
         }         
