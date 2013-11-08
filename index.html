@@ -80,7 +80,11 @@
             }
           }
           if (document.getElementById(category).checked) {
-            str+='<li><a href="'+items[i].link+'"> '+items[i].title +'</a></li>';
+            str+='<li><a href="'
+                +items[i].link+'"> '
+                +items[i].title+'</a> '
+                +items[i].publishedDate+' '
+                +items[i].link.substring(0,20)+'... </li>';
           }
         }         
       }  
