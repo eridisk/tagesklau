@@ -51,9 +51,9 @@
     }
       parseRSS("http://pipes.yahoo.com/pipes/pipe.run?_id=fa89ea1b798157abc93431103e36d63b&_render=rss", function(result) {
         items = result.entries;
-        items.sort(function a,b) {
+        items.sort(function (a,b) {
           return (new Date(b.publishedDate)).getTime() - (new Date(a.publishedDate)).getTime()
-        }
+        });
         console.log(result.entries);
         go();
       });
